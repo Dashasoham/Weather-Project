@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Weather</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="app-wrapper">
+        <form id="search-form" class="mb-5">
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="search"
+                placeholder="Type a city.."
+                class="form-control"
+                id="city-input"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="btn btn-primary w-100"
+                id="button"
+              />
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-4">
+            <img src="images/cloudy.png" alt="cloudy" />
+            <div>
+              <ul id="date-time">
+                <li>date</li>
+                <li>time</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="current-city">
+              <h1 id="main-text">
+                <span id="typeCity">City</span>
+                <span id="typeTemp">18°</span>
+              </h1>
+              <span class="units">
+                <a href="#" id="celsius-link">°C </a>
+                <span> | </span>
+                <a href="#" id="fahrenheit-link">°F </a>
+              </span>
+              <ul id="weather-description">
+                <li>scattered clouds</li>
+                <li>
+                  Humidity: <strong>54%</strong>, <br />
+                  Wind:
+                  <strong>5.66km/h</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4" id="week-days">
+            <div>
+              <img
+                src="images/rainy.png"
+                id="images-column"
+                alt="rainy"
+                width="50"
+              />Monday
+            </div>
+            <br />
+            <div>
+              <img
+                src="images/rainy.png"
+                id="images-column"
+                alt="rainy"
+                width="50"
+              />Tuesday
+            </div>
+            <br />
+            <div>
+              <img
+                src="images/rainy.png"
+                id="images-column"
+                alt="rainy"
+                width="50"
+              />
+              Wednesday
+            </div>
+            <br />
+            <div>
+              <img
+                src="images/rainy.png"
+                id="images-column"
+                alt="rainy"
+                width="50"
+              />
+              Thursday
+            </div>
+            <br />
+            <div>
+              <img
+                src="images/rainy.png"
+                id="images-column"
+                alt="rainy"
+                width="50"
+              />
+              Friday
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
+</html>
