@@ -20,20 +20,36 @@ let currentTime = document.querySelector('#showTime');
 currentDay.innerHTML = `${day}`;
 currentTime.innerHTML = `${hours}:${minutes}`;
 
-function cityName(event) {
-  event.preventDefault();
-  let searchEngine = document.querySelector('#city-input');
-  let myCity = document.querySelector('#typeCity');
-  myCity.innerHTML = searchEngine.value;
-}
-
-function showTemperature(response) {
+function displayTemperature(response) {
   console.log(response);
+  let temperature = document.querySelector('#typeTemp');
+  let cityInput = document.querySelector('#typeCity');
+  let description = document.querySelector('#description');
+  let humidity = document.querySelector('#humidity');
+  let wind = document.querySelector('#wind');
+  let icon = document.querySelector('#mainImage');
+
+  celsiusTemperature = response.data.main.temp;
+
+  temperature.innerHTML = Math.round(celsiusTemperature);
+  cityInput.innerHTML = response.data.name;
+  description.innerHTML = response.data.weather[0].description;
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  icon.setAttribute(
+    'src',
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute('alt', response.data.weather[0].description);
 }
 
-let apiKey = '7d2f7439094688bc9a2723b3273f8711';
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=57&lon=-2.15&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(showTemperature);
+function formSubmission(event) {
+  event.preventDefault();
+  let city = document.querySelector('#city-input').value;
+  apiKey = '263b1a06c461206364e0ad90f938400d';
+  apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=263b1a06c461206364e0ad90f938400d&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
-let form = document.querySelector('form');
-form.addEventListener('submit', cityName);
+let form = document.querySelector('#search-form');
+form.addEventListener('submit', formSubmission);
