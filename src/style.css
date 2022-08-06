@@ -25,6 +25,7 @@ li:first-letter {
   border: 1px solid #dadde1;
   border-radius: 5px;
   margin-top: 20px;
+  max-width: 700px;
 }
 .current-city {
   color: #495c83;
