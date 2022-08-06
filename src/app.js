@@ -79,6 +79,25 @@ function showCelsius(event) {
   let tempElement = document.querySelector('#typeTemp');
   tempElement.innerHTML = degreesCelcius;
 }
+
+function getForecast() {
+  let forecastElement = document.querySelector('#forecast');
+
+  let forecastHTML = '';
+  forecastHTML = `<div class="forecast">
+  <div>
+    <img
+      src="images/rainy.png"
+      id="images-column"
+      alt="rainy"
+      width="50"
+    />Saturday
+  </div>
+</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+getForecast();
 let degreesCelcius = null;
 
 let displayCurrentCity = document.querySelector('#typeCity');
@@ -89,3 +108,4 @@ fahrenheitLink.addEventListener('click', showFahrenheit);
 
 let CelsiusLink = document.querySelector('#celsius-link');
 CelsiusLink.addEventListener('click', showCelsius);
+displayWeekDays();
