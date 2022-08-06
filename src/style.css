@@ -69,3 +69,7 @@ li:first-letter {
   position: relative;
   left: -10px;
 }
+#footer {
+  margin-bottom: -20px;
+  font-size: 14px;
+}
