@@ -24,7 +24,7 @@ function showForecast(coordinates) {
   console.log(coordinates);
   let apiKey = '7d2f7439094688bc9a2723b3273f8711';
 
-  let apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(getForecast);
 }
 function displayTemperature(response) {
@@ -76,27 +76,44 @@ function showCelsius(event) {
   tempElement.innerHTML = degreesCelcius;
 }
 
-function getForecast(response) {
-  console.log(response.data.daily);
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+  return days[day];
+}
+
+function getForecast(response) {
+  let forecast = response.data.daily;
+  console.log(response.data.daily);
   let forecastElement = document.querySelector('#forecast');
-  let days = ['Thu', 'Fri', 'Sat', 'Sun'];
 
   let forecastHTML = '';
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="forecast">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="forecast">
   <div>
     <img
-      src="images/rainy.png"
+      src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}.png"
       id="images-column"
       alt="rainy"
       width="50"
-    />${day}
+    />${formatDay(forecastDay.dt)} 
+    <div class="forecast-temperature>
+    <span class="forecast-temperature-max"> ${Math.round(
+      Math.round(forecastDay.temp.max)
+    )}° </span>
+    <span class="forecast-temperature-min"> ${Math.round(
+      Math.round(forecastDay.temp.min)
+    )}° </span>
+    </div>
   </div>
 </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
