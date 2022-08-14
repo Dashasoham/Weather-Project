@@ -30,6 +30,7 @@ li:first-letter {
 .current-city {
   color: #495c83;
 }
+
 #search-form {
   max-width: 450px;
 }
@@ -56,10 +57,10 @@ li:first-letter {
 
   position: relative;
 
-  top: 20px;
+  top: 30px;
   left: -30px;
 }
-#week-days {
+#forecast {
   color: #0078aa;
   position: relative;
   right: -40px;
