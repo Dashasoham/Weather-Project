@@ -76,11 +76,14 @@ function showCelsius(event) {
   tempElement.innerHTML = degreesCelcius;
 }
 
-function getForecast() {
+function getForecast(response) {
+  console.log(response.data.daily);
+
   let forecastElement = document.querySelector('#forecast');
   let days = ['Thu', 'Fri', 'Sat', 'Sun'];
 
   let forecastHTML = '';
+
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
