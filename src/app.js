@@ -81,6 +81,7 @@ function displayTemperature(response) {
   let humidity = document.querySelector('#humidity');
   let wind = document.querySelector('#wind');
   let icon = document.querySelector('#mainImage');
+  let background = document.querySelector('#second-column');
 
   degreesCelcius = response.data.main.temp;
 
@@ -94,7 +95,7 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`
   );
   icon.setAttribute('alt', response.data.weather[0].description);
-
+  background.setAttribute();
   showForecast(response.data.coord);
 }
 

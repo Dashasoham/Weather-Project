@@ -1,5 +1,10 @@
 .app-wrapper {
-  background-color: #eee4ab;
+  background-color: #d5cabd;
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+  margin-top: 20px;
+  max-width: 700px;
 }
 li:first-letter {
   text-transform: capitalize;
@@ -7,7 +12,7 @@ li:first-letter {
 .current-city {
   position: relative;
   top: 75px;
-  left: 75px;
+  left: 50px;
 }
 .units {
   position: relative;
@@ -20,13 +25,7 @@ li:first-letter {
   text-decoration: none;
   position: relative;
 }
-.app-wrapper {
-  padding: 20px;
-  border: 1px solid #dadde1;
-  border-radius: 5px;
-  margin-top: 20px;
-  max-width: 700px;
-}
+
 .current-city {
   color: #495c83;
 }
@@ -53,7 +52,7 @@ li:first-letter {
 
 #weather-description {
   list-style: none;
-  color: #0078aa;
+  color: #495c83;
 
   position: relative;
 
