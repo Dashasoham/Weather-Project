@@ -55,6 +55,7 @@ function getForecast(response) {
       forecastDay.temp.min
     )}° </span>
     </div>
+    <br />
   </div>
 </div>`;
     }
@@ -75,15 +76,16 @@ function showForecast(coordinates) {
 
 function displayTemperature(response) {
   console.log(response);
+
   let temperature = document.querySelector('#typeTemp');
   let cityInput = document.querySelector('#typeCity');
   let description = document.querySelector('#description');
   let humidity = document.querySelector('#humidity');
   let wind = document.querySelector('#wind');
   let icon = document.querySelector('#mainImage');
-  let background = document.querySelector('#second-column');
 
   degreesCelcius = response.data.main.temp;
+  descriptionTest = response.data.weather[0].main;
 
   temperature.innerHTML = Math.round(degreesCelcius);
   cityInput.innerHTML = response.data.name;
@@ -95,8 +97,26 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`
   );
   icon.setAttribute('alt', response.data.weather[0].description);
-  background.setAttribute();
   showForecast(response.data.coord);
+  if (descriptionTest === 'Clouds') {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1617125305042-9c58831f3050?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGNsb3VkeSUyMHNreXxlbnwwfDB8MHx8&auto=format&fit=crop&w=1400&q=250)';
+  } else if (descriptionTest === 'Clear') {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1615286628718-4a4c8924d0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VubnklMjBza3l8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=250';
+  } else if (descriptionTest === 'Rain') {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1554393181-a77301ded1e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTk1fHxyYWlufGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=1400&q=250)';
+  } else if (descriptionTest === 'Thunderstorm') {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1538169204832-1b461add30a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGh1bmRlcnN0b3JtfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60w=1400&q=250)';
+  } else if (descriptionTest === 'Snow') {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1487383298905-ee8a6b373ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c25vd3xlbnwwfDB8MHx8&auto=format&fit=crop&w=1400&q=250)';
+  } else {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1529697216570-f48ef8f6b2dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmV1dHJhbCUyMHdlYXRoZXJ8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=250)';
+  }
 }
 
 function formSubmission(event) {
@@ -115,6 +135,7 @@ function showCurrentTemp(response) {
   let icon = document.querySelector('#mainImage');
 
   degreesCelcius = response.data.main.temp;
+  descriptionTest = response.data.weather[0].main;
 
   tempElement.innerHTML = Math.round(degreesCelcius);
   description.innerHTML = response.data.weather[0].description;
@@ -126,11 +147,30 @@ function showCurrentTemp(response) {
   );
   icon.setAttribute('alt', response.data.weather[0].description);
   showForecast(response.data.coord);
+  if (descriptionTest === 'Clouds') {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1617125305042-9c58831f3050?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGNsb3VkeSUyMHNreXxlbnwwfDB8MHx8&auto=format&fit=crop&w=1400&q=250)';
+  } else if (descriptionTest === 'Clear') {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1615286628718-4a4c8924d0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VubnklMjBza3l8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=250';
+  } else if (descriptionTest === 'Rain') {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1554393181-a77301ded1e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTk1fHxyYWlufGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=1400&q=250)';
+  } else if (descriptionTest === 'Thunderstorm') {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1538169204832-1b461add30a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGh1bmRlcnN0b3JtfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60w=1400&q=250)';
+  } else if (descriptionTest === 'Snow') {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1487383298905-ee8a6b373ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c25vd3xlbnwwfDB8MHx8&auto=format&fit=crop&w=1400&q=250)';
+  } else {
+    document.body.style.backgroundImage =
+      'URL(https://images.unsplash.com/photo-1529697216570-f48ef8f6b2dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmV1dHJhbCUyMHdlYXRoZXJ8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=250)';
+  }
 }
 
 let form = document.querySelector('#search-form');
 form.addEventListener('submit', formSubmission);
 
 apiKey = '7d2f7439094688bc9a2723b3273f8711';
-let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=Donetsk&appid=${apiKey}&units=metric`;
+let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=Athens&appid=${apiKey}&units=metric`;
 axios.get(`${apiURL}&appid=${apiKey}`).then(showCurrentTemp);
