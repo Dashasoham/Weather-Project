@@ -85,7 +85,7 @@ function displayTemperature(response) {
   let icon = document.querySelector('#mainImage');
 
   degreesCelcius = response.data.main.temp;
-  descriptionTest = response.data.weather[0].main;
+  descriptionImage = response.data.weather[0].main;
 
   temperature.innerHTML = Math.round(degreesCelcius);
   cityInput.innerHTML = response.data.name;
@@ -98,19 +98,19 @@ function displayTemperature(response) {
   );
   icon.setAttribute('alt', response.data.weather[0].description);
   showForecast(response.data.coord);
-  if (descriptionTest === 'Clouds') {
+  if (descriptionImage === 'Clouds') {
     document.body.style.backgroundImage =
       'URL(https://images.unsplash.com/photo-1617125305042-9c58831f3050?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGNsb3VkeSUyMHNreXxlbnwwfDB8MHx8&auto=format&fit=crop&w=1400&q=250)';
-  } else if (descriptionTest === 'Clear') {
+  } else if (descriptionImage === 'Clear') {
     document.body.style.backgroundImage =
       'URL(https://images.unsplash.com/photo-1615286628718-4a4c8924d0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VubnklMjBza3l8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=250';
-  } else if (descriptionTest === 'Rain') {
+  } else if (descriptionImage === 'Rain') {
     document.body.style.backgroundImage =
       'URL(https://images.unsplash.com/photo-1554393181-a77301ded1e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTk1fHxyYWlufGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=1400&q=250)';
-  } else if (descriptionTest === 'Thunderstorm') {
+  } else if (descriptionImage === 'Thunderstorm') {
     document.body.style.backgroundImage =
       'URL(https://images.unsplash.com/photo-1538169204832-1b461add30a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGh1bmRlcnN0b3JtfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60w=1400&q=250)';
-  } else if (descriptionTest === 'Snow') {
+  } else if (descriptionImage === 'Snow') {
     document.body.style.backgroundImage =
       'URL(https://images.unsplash.com/photo-1487383298905-ee8a6b373ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c25vd3xlbnwwfDB8MHx8&auto=format&fit=crop&w=1400&q=250)';
   } else {
@@ -135,7 +135,7 @@ function showCurrentTemp(response) {
   let icon = document.querySelector('#mainImage');
 
   degreesCelcius = response.data.main.temp;
-  descriptionTest = response.data.weather[0].main;
+  descriptionImage = response.data.weather[0].main;
 
   tempElement.innerHTML = Math.round(degreesCelcius);
   description.innerHTML = response.data.weather[0].description;
@@ -147,19 +147,19 @@ function showCurrentTemp(response) {
   );
   icon.setAttribute('alt', response.data.weather[0].description);
   showForecast(response.data.coord);
-  if (descriptionTest === 'Clouds') {
+  if (descriptionImage === 'Clouds') {
     document.body.style.backgroundImage =
       'URL(https://images.unsplash.com/photo-1617125305042-9c58831f3050?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGNsb3VkeSUyMHNreXxlbnwwfDB8MHx8&auto=format&fit=crop&w=1400&q=250)';
-  } else if (descriptionTest === 'Clear') {
+  } else if (descriptionImage === 'Clear') {
     document.body.style.backgroundImage =
       'URL(https://images.unsplash.com/photo-1615286628718-4a4c8924d0eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VubnklMjBza3l8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=250';
-  } else if (descriptionTest === 'Rain') {
+  } else if (descriptionImage === 'Rain') {
     document.body.style.backgroundImage =
       'URL(https://images.unsplash.com/photo-1554393181-a77301ded1e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTk1fHxyYWlufGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=1400&q=250)';
-  } else if (descriptionTest === 'Thunderstorm') {
+  } else if (descriptionImage === 'Thunderstorm') {
     document.body.style.backgroundImage =
       'URL(https://images.unsplash.com/photo-1538169204832-1b461add30a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGh1bmRlcnN0b3JtfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60w=1400&q=250)';
-  } else if (descriptionTest === 'Snow') {
+  } else if (descriptionImage === 'Snow') {
     document.body.style.backgroundImage =
       'URL(https://images.unsplash.com/photo-1487383298905-ee8a6b373ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c25vd3xlbnwwfDB8MHx8&auto=format&fit=crop&w=1400&q=250)';
   } else {
