@@ -2,10 +2,17 @@ body {
   background-image: URL(https://images.unsplash.com/photo-1529697216570-f48ef8f6b2dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmV1dHJhbCUyMHdlYXRoZXJ8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=250);
 }
 .app-wrapper {
-  background-color: #d5cabd;
+  background-image: radial-gradient(
+    circle,
+    #f1f1e6,
+    #d5e2d8,
+    #bcd2d0,
+    #abbfc9,
+    #a5abbd
+  );
   padding: 20px;
-  border: 1px solid #dadde1;
-  border-radius: 5px;
+  border: 1px solid #a5abbd;
+  border-radius: 7px;
   margin-top: 20px;
   max-width: 700px;
 }
